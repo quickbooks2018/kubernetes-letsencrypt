@@ -1,0 +1,9 @@
+# https://cert-manager.io/docs/tutorials/getting-started-with-cert-manager-on-google-kubernetes-engine-using-lets-encrypt-for-ingress-ssl/
+
+gcloud compute addresses create web-ip --global --project playground-s-11-77697c2d
+
+gcloud compute addresses list --project playground-s-11-77697c2d
+
+kubectl get ingress -n ci
+
+kubectl describe ingress web-ingress -n ci

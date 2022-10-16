@@ -1,0 +1,7 @@
+# https://cert-manager.io/docs/tutorials/getting-started-with-cert-manager-on-google-kubernetes-engine-using-lets-encrypt-for-ingress-ssl/
+
+# Deploy a sample web server
+
+kubectl create deployment web --image=gcr.io/google-samples/hello-app:1.0 -n ci
+
+kubectl expose deployment web --port=8080 -n ci
