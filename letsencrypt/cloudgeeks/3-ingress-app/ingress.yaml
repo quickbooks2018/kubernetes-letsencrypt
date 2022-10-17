@@ -5,7 +5,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: web-ingress
-  namespace: ci
+  namespace: app
   annotations:
     # This tells Google Cloud to create an External Load Balancer to realize this Ingress
     kubernetes.io/ingress.class: gce
@@ -13,20 +13,20 @@ metadata:
     kubernetes.io/ingress.allow-http: "true"
     # This tells Google Cloud to associate the External Load Balancer with the static IP which we created earlier
     kubernetes.io/ingress.global-static-ip-name: web-ip
-    cert-manager.io/issuer: letsencrypt
+    cert-manager.io/issuer: letsencrypt-production
 spec:
   tls:
-    - secretName: tls-secret
+    - secretName: web-ssl
       hosts:
-        - app.cloudgeek.tk
+        - app.cloudgeeks.tk
   defaultBackend:
     service:
       name: web
       port:
-        number: 8080
+        number: 80
 
- # kubectl get ingress -n ci       
+ # kubectl get ingress -n app       
 
- # kubectl describe ingress -n ci
+ # kubectl describe ingress/web-ingress -n app
 
  # https://cert-manager.io/docs/tutorials/getting-started-with-cert-manager-on-google-kubernetes-engine-using-lets-encrypt-for-ingress-ssl/

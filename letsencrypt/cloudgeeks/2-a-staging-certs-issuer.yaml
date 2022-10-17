@@ -1,13 +1,13 @@
 apiVersion: cert-manager.io/v1
 kind: Issuer
 metadata:
-  name: letsencrypt
-  namespace: ci
+  name: letsencrypt-staging
+  namespace: app
 spec:
   acme:
     server: https://acme-v02.api.letsencrypt.org/directory
     privateKeySecretRef:
-      name: letsencrypt
+      name: letsencrypt-staging-secret
     solvers:
     - http01:
        ingress:
@@ -16,19 +16,13 @@ spec:
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: le-crt
-  namespace: ci
+  name: letsencrypt-staging-certificate
+  namespace: app
 spec:
-  secretName: tls-secret
+  secretName: letsencrypt-staging-secret
   issuerRef:
     kind: Issuer
-    name: letsencrypt
+    name: letsencrypt-staging
   commonName: app.cloudgeeks.tk
   dnsNames:
   - app.cloudgeeks.tk
-
-
-# kubectl get certs -n ci
-# kubectl get issuer -n ci
-# kubectl get secrets -n ci
-# kubectl get secrets/tls-secret -o yaml -n ci

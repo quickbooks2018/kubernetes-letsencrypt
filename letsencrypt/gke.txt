@@ -1,9 +1,39 @@
 # https://cert-manager.io/docs/tutorials/getting-started-with-cert-manager-on-google-kubernetes-engine-using-lets-encrypt-for-ingress-ssl/
 
-gcloud compute addresses create web-ip --global --project playground-s-11-77697c2d
+gcloud compute addresses create web-ip --global --project playground-s-11-f92f263f
 
-gcloud compute addresses list --project playground-s-11-77697c2d
+gcloud compute addresses list --project playground-s-11-f92f263f
 
-kubectl get ingress -n ci
+kubectl get ingress -n app
 
-kubectl describe ingress web-ingress -n ci
+kubectl describe ingress web-ingress -n app
+
+
+# Trouble Shooting
+
+
+First a quick hack, to work around a problem with the Google Cloud ingress controller. Create an empty Secret for your SSL certificate before reconfiguring the Ingress and apply it:
+# Note: copy a tls.key in secret.yaml
+
+# to get tls.key use this command, this name is mentioned in 2-b-production-certs-issuer.yaml
+
+kubectl get secrets/letsencrypt-production-secret -n app -o yaml
+
+
+# https://cert-manager.io/docs/tutorials/getting-started-with-cert-manager-on-google-kubernetes-engine-using-lets-encrypt-for-ingress-ssl/#troubleshooting
+
+# Check that the SSL certificate has been copied to Google Cloud
+
+gcloud compute ssl-certificates list --project playground-s-11-f92f263f
+
+
+
+
+# Error
+
+  Warning  Sync               112s (x7 over 9m27s)  loadbalancer-controller    Error syncing to GCP: error running load balancer syncing routine: secret "lets
+encrypt-production-secret" does not specify cert as string data
+
+https://stackoverflow.com/questions/65872354/gke-ingress-is-not-working-with-cert-manager-ssl-secrets
+
+https://cloud.google.com/kubernetes-engine/docs/concepts/secret#from_files

@@ -2,6 +2,8 @@
 
 # Deploy a sample web server
 
-kubectl create deployment web --image=gcr.io/google-samples/hello-app:1.0 -n ci
+kubectl create ns app
 
-kubectl expose deployment web --port=8080 -n ci
+kubectl create deployment web --image=quickbooks2018/green:latest -n app
+
+kubectl expose deployment web --port=80 -n app
