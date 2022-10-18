@@ -11,6 +11,8 @@ helm repo update
 
 - helm upgrade --install cert-manager jetstack/cert-manager --version v1.9.0 --namespace cert-manager --create-namespace --set installCRDs=true
 
+- helm upgrade --install cert-manager jetstack/cert-manager --version v1.9.1 --namespace cert-manager --create-namespace --set installCRDs=true
+
 #########
 # Version
 #########
