@@ -17,3 +17,9 @@ helm repo update
 # Version
 #########
 - helm upgrade --install cert-manager jetstack/cert-manager --version v1.6.1 --namespace cert-manager --create-namespace --set installCRDs=true
+
+##############
+# Troubleshoot
+##############
+
+- https://cert-manager.io/docs/installation/upgrading/upgrading-0.16-1.0/#issue-with-older-versions-of-kubectl
