@@ -1,5 +1,7 @@
 # https://cert-manager.io/docs/tutorials/getting-started-with-cert-manager-on-google-kubernetes-engine-using-lets-encrypt-for-ingress-ssl/
 
+# https://cert-manager.io/docs/installation/upgrading/upgrading-0.16-1.0/#issue-with-older-versions-of-kubectl
+
 gcloud compute addresses create web-ip --global --project playground-s-11-f92f263f
 
 gcloud compute addresses list --project playground-s-11-f92f263f
