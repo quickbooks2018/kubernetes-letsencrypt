@@ -23,3 +23,14 @@ helm repo update
 ##############
 
 - https://cert-manager.io/docs/installation/upgrading/upgrading-0.16-1.0/#issue-with-older-versions-of-kubectl
+
+#####################
+# Cert-Manager Update
+#####################
+
+1. Backup issuer and certificate manifest files from app namespace
+2. Remove CRD certificaterequests.cert-manager.io certificates.cert-manager.io challenges.acme.cert-manager.io clusterissuers.cert-manager.io issuers.cert-manager.io orders.acme.cert-manager.io;
+3. update cert-manager, run helm upgrade --install cert-manager jetstack/cert-manager --version v1.9.1 --namespace cert-manager --create-namespace --set installCRDs=true
+4. app issuer and certificate manifest files to app namespace
+5. kubectl get issuer
+6. kubectl get certs
