@@ -23,13 +23,12 @@ spec:
   issuerRef:
     kind: Issuer
     name: letsencrypt-production
-  commonName: app.cloudgeeks.tk
+  commonName: faheem.saqlainmushtaq.com
   dnsNames:
-  - app.cloudgeeks.tk
+  - faheem.saqlainmushtaq.com
 
 
 # kubectl get certs -n app
 # kubectl get issuer -n app
 # kubectl get secrets -n app
-# kubectl get secrets -n ap
 # kubectl get secrets/letsencrypt-production-secret -o yaml -n app
