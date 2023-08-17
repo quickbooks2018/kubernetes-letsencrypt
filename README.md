@@ -20,3 +20,5 @@ helm show values jetstack/cert-manager --version v1.12.3
 helm show values jetstack/cert-manager --version v1.12.3 > cert-manager-values.yaml
 helm upgrade --install cert-manager jetstack/cert-manager --version v1.12.3 --namespace cert-manager --create-namespace --values cert-manager-values.yaml
 ```
+
+- Nginx Ingress https://www.youtube.com/watch?v=l5sofll5OBA&t=472s
