@@ -34,3 +34,9 @@ spec:
 # kubectl describe challenge -n app
 # kubectl get orders -n app
 # kubectl get secrets/letsencrypt-production-secret -o yaml -n app
+
+# Fix Issues
+# kubectl describe issuer letsencrypt-production -n app
+# kubectl describe certificaterequest letsencrypt-production-certificate-wfq5n -n app
+# kubectl delete secret letsencrypt-production-certificate-pvdl2 -n app
+
