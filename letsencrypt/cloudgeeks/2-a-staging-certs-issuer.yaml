@@ -23,6 +23,6 @@ spec:
   issuerRef:
     kind: Issuer
     name: letsencrypt-staging
-  commonName: app.cloudgeeks.tk
+  commonName: faheem.saqlainmushtaq.com
   dnsNames:
-  - app.cloudgeeks.tk
+  - faheem.saqlainmushtaq.com
