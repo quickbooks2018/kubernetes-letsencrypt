@@ -1,5 +1,15 @@
 # Lets Encrypt Installation
 
+- Install CRD must this first
+```bash
+kubectl get crd | grep cert-manager.io
+```
+
+- Install CRDs according to version
+```bash
+kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/v1.12.3/cert-manager.crds.yaml
+```
+
 ```bash
 helm repo add jetstack https://charts.jetstack.io
 helm repo update
