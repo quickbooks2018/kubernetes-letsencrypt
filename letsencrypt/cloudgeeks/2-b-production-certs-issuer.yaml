@@ -32,4 +32,5 @@ spec:
 # kubectl get issuer -n app
 # kubectl get secrets -n app
 # kubectl describe challenge -n app
+# kubectl get orders -n app
 # kubectl get secrets/letsencrypt-production-secret -o yaml -n app
